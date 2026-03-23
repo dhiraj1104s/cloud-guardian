@@ -19,3 +19,10 @@ model S3Bucket {
   name     String  @unique
   isPublic Boolean @default(false)
 }
+
+model CloudVPC {
+  id        Int      @id @default(autoincrement())
+  name      String
+  cidrBlock String   // e.g., "10.0.0.0/16"
+  region    String
+}
