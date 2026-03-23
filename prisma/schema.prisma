@@ -1,12 +1,10 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
-
 model EC2Instance {
   id         Int    @id @default(autoincrement())
   instanceId String @unique
