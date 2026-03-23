@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model EC2Instance {
+  id         Int    @id @default(autoincrement())
+  instanceId String @unique
+  type       String
+  region     String
+}
+
+model S3Bucket {
+  id       Int     @id @default(autoincrement())
+  name     String  @unique
+  isPublic Boolean @default(false)
+}
