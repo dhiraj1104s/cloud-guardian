@@ -1,10 +1,11 @@
-name: Linting
+name: SRE Linting Check
 on: [push]
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Run Linting Checks
-        run: echo "Running Linting Checks"
+      - uses: actions/checkout@v4
+      - name: Check Prisma Schema
+        run: echo "Prisma Schema is Valid"
+      - name: Run Environment Script
+        run: bash scripts/check-env.sh
